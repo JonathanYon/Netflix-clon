@@ -1,10 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <title>Hello, world!</title>
   </head>
-  <body></body>
+  <body>
+    <style>
+      .net-bg-color {
+        background-color: #141414;
+      }
+      body {
+        background-color: #141414;
+      }
+      .buttondrop1 {
+        width: 75px;
+        height: 27px;
+      }
+      .sizat {
+        font-size: x-small;
+      }
+    </style>
+    <nav class="navbar navbar-expand-lg net-bg-color">
+      <a class="navbar-brand" href="#"
+        ><img src="img/netflix_logo.png" alt="Netflix-logo" height="40"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+          class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll"
+          style="max-height: 100px"
+        >
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white font-weight-bold" href="#"
+              >Tv Shows<span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-white" href="#" aria-expanded="false">
+              Movies
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Recently Added</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">My Last</a>
+          </li>
+        </ul>
+        <i class="bi bi-search text-white font-weight-bold mr-2"></i>
+
+        <div class="d-flex">
+          <input
+            class="
+              form-control
+              mr-2
+              net-bg-color
+              border-dark border-0
+              text-white
+              active
+            "
+            type="search"
+            placeholder="Kids"
+            size="1"
+            aria-label="Search"
+          />
+          <i class="bi bi-bell-fill text-white font-weight-bold mt-2 ml-n3"></i>
+
+          <div class="collapse navbar-collapse" id="navbar-list-4">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img src="img/avatar.png" width="30" height="30" class="" />
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a class="dropdown-item" href="#">Dashboard</a>
+                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <a class="dropdown-item" href="#">Log Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ++++++++++++++++++++++++++++++++++++++++ + form ++++++++++++++++++++++++++++ -->
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="mt-5 mb-3">Backoffice</h2>
+          <div class="col alert"></div>
+          <form id="form" onsubmit="addMovie(event)">
+            <div class="form-group text-white">
+              <label for="name">Movie Link</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                aria-describedby="name field"
+                required
+              />
+            </div>
+            <div class="form-group text-white">
+              <label for="name">Category</label>
+              <input
+                id="brand"
+                type="text"
+                class="form-control"
+                aria-describedby="name field"
+                required
+              />
+            </div>
+            <!-- <div class="form-group">
+              <label for="description"> Description</label>
+              <input
+                id="description"
+                type="textarea"
+                rows="7"
+                class="form-control"
+                aria-describedby="event description field"
+                required
+              />
+            </div> -->
+            <!-- <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                id="price"
+                type="number"
+                class="form-control"
+                aria-describedby="ticket price field"
+                required
+              />
+            </div> -->
+            <!-- <div class="form-group">
+              <label for="time">Image</label>
+              <input
+                id="img"
+                type="text"
+                class="form-control"
+                aria-describedby="date and time field"
+                required
+              />
+            </div> -->
+            <div class="d-flex justify-content-between mt-4">
+              <button id="edit" type="submit" class="btn btn-primary">
+                <span>Submit</span>
+              </button>
+              <button
+                id="delete-btn"
+                type="button"
+                class="btn btn-danger d-none"
+              >
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const url = "helloooooooooooooooooooooo";
+      console.log(url);
+      const addMovie = async (event) => {
+        console.log(url);
+
+        event.preventDefault();
+        try {
+          const respo = await fetch(
+            "https://striveschool-api.herokuapp.com/api/movies/",
+            {
+              headers: {
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+                "content-type": "application/json",
+              },
+            }
+          );
+          const res = await respo.json();
+          console.log(res);
+          console.log(url);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    </script>
+  </body>
 </html>
