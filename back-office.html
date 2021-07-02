@@ -134,7 +134,7 @@
           <div class="col alert"></div>
           <form id="form" onsubmit="addMovie(event)">
             <div class="form-group text-white">
-              <label for="name">Movie Link</label>
+              <label for="name">Name</label>
               <input
                 id="name"
                 type="text"
@@ -144,16 +144,16 @@
               />
             </div>
             <div class="form-group text-white">
-              <label for="name">Category</label>
+              <label for="category">Category</label>
               <input
-                id="brand"
+                id="category"
                 type="text"
                 class="form-control"
                 aria-describedby="name field"
                 required
               />
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group text-white">
               <label for="description"> Description</label>
               <input
                 id="description"
@@ -163,17 +163,17 @@
                 aria-describedby="event description field"
                 required
               />
-            </div> -->
-            <!-- <div class="form-group">
-              <label for="price">Price</label>
+            </div>
+            <div class="form-group text-white">
+              <label for="img">Image Link</label>
               <input
-                id="price"
-                type="number"
+                id="img"
+                type="text"
                 class="form-control"
                 aria-describedby="ticket price field"
                 required
               />
-            </div> -->
+            </div>
             <!-- <div class="form-group">
               <label for="time">Image</label>
               <input
@@ -219,18 +219,26 @@
       const url = "helloooooooooooooooooooooo";
       console.log(url);
       const addMovie = async (event) => {
-        console.log(url);
-
         event.preventDefault();
+
+        let myForm = {
+          name: document.getElementById("name").value,
+          description: document.getElementById("description").value,
+          category: document.getElementById("category").value,
+          imageUrl: document.getElementById("img").value,
+        };
+
         try {
           const respo = await fetch(
             "https://striveschool-api.herokuapp.com/api/movies/",
             {
+              method: "POST",
               headers: {
                 Authorization:
                   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
                 "content-type": "application/json",
               },
+              body: JSON.stringify(myForm),
             }
           );
           const res = await respo.json();
@@ -240,6 +248,8 @@
           console.log(err);
         }
       };
+
+      const deleteItem = async () => {};
     </script>
   </body>
 </html>

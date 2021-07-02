@@ -196,153 +196,15 @@
     </div>
 
     <div class="container-fluid ml-sm-2 mr-sm-n">
-      <p class="text-white">
-        <i class="fas fa-percent"></i> Flash Deals - catch the highest discounts
-      </p>
-      <hr />
+      
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide"
         data-ride="carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row row-cols-sm-6 d-flex flex-nowrap row-up">
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ****************************************no need below -->
-          <!-- <div class="carousel-item">
-            <div class="row row-cols-1 row-cols-sm-6">
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="carousel-item">
-            <div class="row row-cols-1 row-cols-sm-4">
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-              <div class="col mb-4">
-                <div class="card">
-                  <img src="img/media27.jpg" class="card-img-top" alt="..." />
-                </div>
-              </div>
-            </div>
-          </div> 
-         -->
-          <!-- ********************************no need above******************************** -->
+        
+         
+          
         </div>
       </div>
     </div>
@@ -362,30 +224,77 @@
     ></script>
 
     <script>
-        let category = ["drama", "romance", "action"]
+        
+        
       const htmlShow = async (url) => {
         try {
-          const respo = await fetch(url,
-            {
-              Athorization:
+          const respo = await fetch(url, {
+              headers: {
+                Authorization:
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
               "content-type": "application/json",
-            }
-          );
+              }
+          })
           const res = await respo.json();
-            let row = document.querySelector(".row-up")
-            res.forEach(data => {
-                row.innerHTML =
+            // console.log(res)
+            let mainCar = document.querySelector(".carousel")
+            res.forEach(async data => {
+                let para = document.createElement("p")
+                let carousel = document.createElement("div")
+                let carItem = document.createElement("div")
+                let row = document.createElement("div")
+                para.classList.add("text-white")
+                carousel.classList.add("carousel-inner")
+                carItem.classList.add("carousel-item", "active")
+                row.classList.add("row", "row-cols-sm-6")
+                para.innerText = `${data}`
+                carItem.appendChild(row)
+                carousel.appendChild(carItem)
+                mainCar.appendChild(carousel) 
+                
+                const theFilm = await fetch(url+data, {
+                  headers: {
+                  Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+                  "content-type": "application/json",
+                }
+              })
+              const film = await theFilm.json()
+              console.log(film)
+              
+              film.forEach(card => {
+                row.innerHTML = `
+                <div class="col mb-4">
+                <div class="card">
+                  <img src="${card.imageUrl}" class="card-img-top" alt="..." />
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-white">${card.name}</h5>
+                    <div class="d-flex">
+                      <p class="text-white"><${card.category}</p> 
+                      <p class="card-text text-white prices pl-4 pt-2">${card.description}</p>
+                    </div>
+                  </div>
+              </div>
+                `
+              })
             })
+             
+             
+
           console.log(res);
+          
         } catch (err) {
           console.log(err);
         }
       };
 
+      
+
       window.onload = () => {
           let url = "https://striveschool-api.herokuapp.com/api/movies/"
           htmlShow(url)
+       
       }
     </script>
   </body>
