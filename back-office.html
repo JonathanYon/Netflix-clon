@@ -216,8 +216,12 @@
     ></script>
 
     <script>
-      const url = "helloooooooooooooooooooooo";
-      console.log(url);
+      const cardId = new URLSearchParams(window.location.search).get("id");
+      const url = cardId
+        ? "https://striveschool-api.herokuapp.com/api/movies/" + cardId
+        : "https://striveschool-api.herokuapp.com/api/movies/";
+      const method = cardId ? "PUT" : "POST";
+
       const addMovie = async (event) => {
         event.preventDefault();
 
@@ -229,18 +233,15 @@
         };
 
         try {
-          const respo = await fetch(
-            "https://striveschool-api.herokuapp.com/api/movies/",
-            {
-              method: "POST",
-              headers: {
-                Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(myForm),
-            }
-          );
+          const respo = await fetch(url, {
+            method: "POST",
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(myForm),
+          });
           const res = await respo.json();
           console.log(res);
           console.log(url);
@@ -249,7 +250,18 @@
         }
       };
 
-      const deleteItem = async () => {};
+      const deleteItem = async () => {
+        const deleteFetch = await fetch(url, {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+            "content-type": "application/json",
+          },
+        });
+
+        alert("SUCCESSFULL DELETE");
+      };
     </script>
   </body>
 </html>
