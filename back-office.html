@@ -180,8 +180,7 @@
                 required
               />
             </div>
-            
-            </div> -->
+
             <div class="d-flex justify-content-between mt-4">
               <button id="edit" type="submit" class="btn btn-primary">
                 Submit
@@ -291,16 +290,21 @@
       };
 
       const deleteItem = async () => {
-        const deleteFetch = await fetch(url, {
-          method: "DELETE",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
-            "content-type": "application/json",
-          },
-        });
+        const confirmed = confirm(
+          "ARE YOU SURE YOU WANT TO DAELET THE CURRENT MOVIE ?"
+        );
+        if (confirmed) {
+          const deleteFetch = await fetch(url, {
+            method: "DELETE",
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+              "content-type": "application/json",
+            },
+          });
 
-        showAlert("success", "SUCCESSFULL DELETE");
+          showAlert("success", "SUCCESSFULL DELETE");
+        }
       };
 
       const isItloding = (loading) => {
