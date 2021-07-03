@@ -60,11 +60,11 @@
           style="max-height: 100px"
         >
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Home</a>
+            <a class="nav-link text-white" href="home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white font-weight-bold" href="#"
-              >Tv Shows<span class="sr-only">(current)</span></a
+            <a class="nav-link text-white font-weight-bold" href="back-office.html"
+              >Back Office<span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item dropdown">
@@ -267,15 +267,11 @@
                 <div class="col mb-4">
                 <div class="card">
                   <a href="back-office.html?id=${card._id}"><img src="${card.imageUrl}" class="card-img-top" alt="..." /></a>
+                  <p class="text-white d-none"><${card.category}</p>
+                  <h5 class="card-title text-white d-none">${card.name}</h5>
+                  <p class="card-text text-white prices pl-4 pt-2 d-none">${card.description}</p>
                 </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-white">${card.name}</h5>
-                    <div class="d-flex">
-                      <p class="text-white"><${card.category}</p> 
-                      <p class="card-text text-white prices pl-4 pt-2">${card.description}</p>
-                    </div>
-                  </div>
-              </div>
+                
                 `
               })
             })
@@ -299,3 +295,12 @@
     </script>
   </body>
 </html>
+
+<!-- <div class="card-body d-flex flex-column">
+  <h5 class="card-title text-white">${card.name}</h5>
+  <div class="d-flex">
+    <p class="text-white"><${card.category}</p> 
+    <p class="card-text text-white prices pl-4 pt-2">${card.description}</p>
+  </div>
+</div>
+</div> -->

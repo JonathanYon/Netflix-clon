@@ -59,11 +59,13 @@
           style="max-height: 100px"
         >
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#">Home</a>
+            <a class="nav-link text-white" href="home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white font-weight-bold" href="#"
-              >Tv Shows<span class="sr-only">(current)</span></a
+            <a
+              class="nav-link text-white font-weight-bold"
+              href="back-office.html"
+              >Back Office<span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item dropdown">
@@ -130,8 +132,12 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <h2 class="mt-5 mb-3">Backoffice</h2>
+          <h2 class="mt-5 mb-3 text-white">Backoffice</h2>
+          <span id="alert"></span>
           <div class="col alert"></div>
+          <div class="spinner-border text-primary d-none" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
           <form id="form" onsubmit="addMovie(event)">
             <div class="form-group text-white">
               <label for="name">Name</label>
@@ -174,26 +180,19 @@
                 required
               />
             </div>
-            <!-- <div class="form-group">
-              <label for="time">Image</label>
-              <input
-                id="img"
-                type="text"
-                class="form-control"
-                aria-describedby="date and time field"
-                required
-              />
+            
             </div> -->
             <div class="d-flex justify-content-between mt-4">
               <button id="edit" type="submit" class="btn btn-primary">
-                <span>Submit</span>
+                Submit
               </button>
               <button
+                onclick="deleteItem()"
                 id="delete-btn"
                 type="button"
                 class="btn btn-danger d-none"
               >
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill btn-danger"></i>
               </button>
             </div>
           </form>
@@ -221,9 +220,42 @@
         ? "https://striveschool-api.herokuapp.com/api/movies/" + cardId
         : "https://striveschool-api.herokuapp.com/api/movies/";
       const method = cardId ? "PUT" : "POST";
+      window.onload = async () => {
+        if (cardId) {
+          let h2 = document.querySelector("h2");
+          h2.insertAdjacentHTML("beforeend", `<span>-Edit</span>`);
+          let btn = document.getElementById("edit");
+          let btnDelete = document.querySelector("#delete-btn");
+          btn.classList.remove("btn-primary");
+          btn.classList.add("btn-success");
+          btn.innerText = "Edit";
+          btnDelete.classList.remove("d-none");
+
+          const putFetch = await fetch(url, {
+            method,
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
+              "content-type": "application/json",
+            },
+          });
+          const editFetch = await putFetch.json();
+
+          document.getElementById("name").value = editFetch.name;
+          document.getElementById("description").value = editFetch.description;
+          document.getElementById("category").value = editFetch.category;
+          document.getElementById("img").value = editFetch.imageUrl;
+        } else {
+          document
+            .querySelector("h2")
+            .insertAdjacentHTML("beforeend", `<span>-create</span>`);
+        }
+      };
 
       const addMovie = async (event) => {
         event.preventDefault();
+
+        isItloding(true);
 
         let myForm = {
           name: document.getElementById("name").value,
@@ -234,7 +266,7 @@
 
         try {
           const respo = await fetch(url, {
-            method: "POST",
+            method,
             headers: {
               Authorization:
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjBjNGIzNTgxNzAwMTVjMjI3MGQiLCJpYXQiOjE2MjUwNTU0MjgsImV4cCI6MTYyNjI2NTAyOH0.sK7YEMPt-TWTjKV0e9vzNxLJCKX5zhbAYRIxCPheR2g",
@@ -243,10 +275,18 @@
             body: JSON.stringify(myForm),
           });
           const res = await respo.json();
+          if (cardId) {
+            showAlert(`success`, `You successfully Edit ${res._id}`);
+          } else {
+            showAlert(`success`, `You successfully created ${res._id}`);
+          }
+          isItloding(false);
+
           console.log(res);
           console.log(url);
         } catch (err) {
           console.log(err);
+          showAlert("danger", err);
         }
       };
 
@@ -260,7 +300,28 @@
           },
         });
 
-        alert("SUCCESSFULL DELETE");
+        showAlert("success", "SUCCESSFULL DELETE");
+      };
+
+      const isItloding = (loading) => {
+        if (loading) {
+          document.querySelector(".spinner-border").classList.remove("d-none");
+        } else {
+          document.querySelector(".spinner-border").classList.add("d-none");
+        }
+      };
+
+      const showAlert = (color, messege) => {
+        let alert = document.getElementById("alert");
+        alert.innerHTML = `
+        <div class="alert alert-${color}" role="alert">
+          ${messege}
+        </div>
+        `;
+
+        setTimeout(() => {
+          alert.innerHTML = "";
+        }, 2000);
       };
     </script>
   </body>
