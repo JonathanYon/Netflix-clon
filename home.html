@@ -263,7 +263,7 @@
               console.log(film)
               
               film.forEach(card => {
-                row.innerHTML = `
+                row.innerHTML += `
                 <div class="col mb-4">
                 <div class="card">
                   <a href="back-office.html?id=${card._id}"><img src="${card.imageUrl}" class="card-img-top" alt="..." /></a>
